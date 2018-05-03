@@ -3,6 +3,7 @@ package com.bios.conta.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Item {
@@ -21,6 +22,9 @@ public class Item {
 	private boolean isNecessario;
 	
 	private int qtd;
+	
+	@ManyToOne
+	private Conta conta;
 
 	public long getId() {
 		return id;
@@ -76,6 +80,14 @@ public class Item {
 
 	public void setNecessario(boolean isNecessario) {
 		this.isNecessario = isNecessario;
+	}
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 	
 }
